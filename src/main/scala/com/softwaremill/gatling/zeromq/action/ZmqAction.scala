@@ -2,7 +2,7 @@ package com.softwaremill.gatling.zeromq.action
 
 import com.softwaremill.gatling.zeromq.request.builder.ZmqRequest
 import io.gatling.commons.stats.{KO, OK}
-import io.gatling.commons.util.ClockSingleton._
+import io.gatling.commons.util.DefaultClock._
 import io.gatling.commons.validation.{Failure, Success, Validation, _}
 import io.gatling.core.CoreComponents
 import io.gatling.core.action.{Action, ExitableAction}
