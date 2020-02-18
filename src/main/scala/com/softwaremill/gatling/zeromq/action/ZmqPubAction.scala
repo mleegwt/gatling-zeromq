@@ -12,7 +12,7 @@ class ZmqPubAction(sock: ZMQ.Socket,
                    throttled: Boolean,
                    next: Action,
                    clock: Clock)
-    extends ZmqAction(sock, request, coreComponents, throttled, next) {
+    extends ZmqAction(sock, request, coreComponents, throttled, next, clock) {
 
   override val name: String = genName("zmqPub")
 
