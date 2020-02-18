@@ -4,7 +4,7 @@ name := "gatling-zeromq"
 
 organization := "com.softwaremill.gatling-zeromq"
 
-scalaVersion := "2.11.11"
+scalaVersion := "2.12.10"
 
 scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature", "-Xlint")
 
