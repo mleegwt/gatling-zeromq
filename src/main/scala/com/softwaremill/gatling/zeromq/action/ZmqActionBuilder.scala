@@ -17,7 +17,7 @@ class ZmqActionBuilder(val zmqRequestBuilder: ZmqRequestBuilder)
   val ONE_THREAD = 1
 
   override def build(ctx: ScenarioContext, next: Action): Action = {
-    import ctx.{coreComponents, protocolComponentsRegistry, system, throttled}
+    import ctx.{coreComponents, protocolComponentsRegistry, throttled}
 
     val zmqComponents: ZmqComponents =
       protocolComponentsRegistry.components(ZmqProtocol.ZmqProtocolKey)
