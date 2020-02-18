@@ -40,7 +40,7 @@ licenses := ("Apache-2.0",
              url("http://www.apache.org/licenses/LICENSE-2.0.txt")) :: Nil
 homepage := Some(url("http://softwaremill.com/open-source"))
 
-val gatlingVer = "2.2.5"
+val gatlingVer = "3.3.1"
 val zeromqVer = "0.4.2"
 
 libraryDependencies ++= Seq(
