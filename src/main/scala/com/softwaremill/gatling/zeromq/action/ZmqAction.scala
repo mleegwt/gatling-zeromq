@@ -2,7 +2,7 @@ package com.softwaremill.gatling.zeromq.action
 
 import com.softwaremill.gatling.zeromq.request.builder.ZmqRequest
 import io.gatling.commons.stats.{KO, OK}
-import io.gatling.commons.util.{DefaultClock, Clock, _}
+import io.gatling.commons.util.{Clock, _}
 import io.gatling.commons.validation.{Failure, Success, Validation, _}
 import io.gatling.core.CoreComponents
 import io.gatling.core.action.{Action, ExitableAction}
@@ -18,7 +18,8 @@ abstract class ZmqAction(val sock: ZMQ.Socket,
                          val request: ZmqRequest,
                          val coreComponents: CoreComponents,
                          val throttled: Boolean,
-                         val next: Action)
+                         val next: Action,
+                         val clock: Clock)
     extends ExitableAction
     with NameGen {
 
@@ -56,9 +57,9 @@ abstract class ZmqAction(val sock: ZMQ.Socket,
       }
       case Success(payloads) => {
         try {
-          val requestStartDate = nowMillis
+          val requestStartDate = clock.nowMillis
           val isEverythingSent = doSend(session, requestName, payloads)
-          val requestEndDate = nowMillis
+          val requestEndDate = clock.nowMillis
 
           logAction(session,
                     requestName,
